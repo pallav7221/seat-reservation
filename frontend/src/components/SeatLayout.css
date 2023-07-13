@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    background-color: #f2f2f2;
+    padding: 20px;
+
+}
+
+.seat-layout {
+    width: 50%;
+    margin-left: 40px;
+}
+
+.reservation-form {
+    width: 20%;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.ticketContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.seats-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+.available {
+    background-color: #00ff00;
+}
+
+.booked {
+    background-color: #ff0000;
+}
