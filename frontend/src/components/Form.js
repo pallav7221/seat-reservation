@@ -4,10 +4,12 @@ import "./Form.css"
 
 const ReservationForm = ({ fetchSeats }) => {
     const [numSeats, setNumSeats] = useState('');
+    const [lastBookedSeat, setLastBookedSeat] = useState('');
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('/reserve', { numSeats });
+            const res = await axios.post('/reserve', { numSeats });
+            setLastBookedSeat(res.data.seatNumbers.join(', '));
             setNumSeats('');
             fetchSeats();
         } catch (error) {
@@ -25,6 +27,9 @@ const ReservationForm = ({ fetchSeats }) => {
     };
     return (
         <>
+            {lastBookedSeat ? <div className="last-booked-seat">
+                Last Booked Seat: {lastBookedSeat}
+            </div> : null}
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                     <input
